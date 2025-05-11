@@ -1,0 +1,27 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "ssin": {
+      "type": "string",
+      "pattern": "^\d{11}$",
+      "description": "Belgian Social Security Identification Number (SSIN)"
+    },
+    "firstName": { "type": "string" },
+    "lastName": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "dateOfBirth": { "type": "string", "format": "date" },
+    "address": {
+      "type": "object",
+      "properties": {
+        "street": { "type": "string" },
+        "city": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "country": { "type": "string" }
+      },
+      "required": ["street", "city", "postalCode", "country"]
+    }
+  },
+  "required": ["ssin", "firstName", "lastName", "email", "dateOfBirth", "address"]
+}

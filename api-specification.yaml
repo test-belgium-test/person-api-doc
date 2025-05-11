@@ -1,0 +1,47 @@
+
+openapi: 3.0.3
+info:
+  title: Person API
+  version: 1.0.0
+paths:
+  /person:
+    post:
+      summary: Create a person
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './schemas/person-schema.json'
+      responses:
+        '201':
+          description: Person created
+    put:
+      summary: Update a person entirely
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './schemas/person-schema.json'
+      responses:
+        '200':
+          description: Person updated
+    patch:
+      summary: Update person partially
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Person partially updated
